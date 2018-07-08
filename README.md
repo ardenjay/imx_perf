@@ -11,4 +11,15 @@ imx_perf [type] [config]
 
 For example, to profile ddr cycles,
 
-	imx_perf ddr-perf cycles
+	imx_perf ddr_perf cycles
+
+Then you can do something on the device. After that, press ctrl+c. It outputs as below,
+
+	received SIGINT
+	Used 10219501 cycles
+
+If you want profile in the shell, it needs to be put in the backgroud,
+
+	imx_perf ddr_perf cycles &
+
+And then you run some shell command. After that, enter fg to bring it back and then ctrl+c.
