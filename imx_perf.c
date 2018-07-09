@@ -40,6 +40,8 @@ perf_event_open(struct perf_event_attr *hw_event, pid_t pid,
 
 	ret = syscall(__NR_perf_event_open, hw_event, pid, cpu,
 			group_fd, flags);
+	if (ret < 0)
+		fprintf(stderr, "%d: %s\n", errno, strerror(errno));
 	return ret;
 }
 
@@ -80,10 +82,13 @@ main(int argc, char **argv)
 	pe.size = sizeof(struct perf_event_attr);
 	pe.config = config;
 	pe.disabled = 1;
+	/* not allowed for ddr-perf */
+	/*
 	pe.exclude_kernel = 1;
 	pe.exclude_hv = 1;
+	*/
 
-	perf_fd = perf_event_open(&pe, 0, -1, -1, 0);
+	perf_fd = perf_event_open(&pe, -1, 0, -1, 0);
 	if (perf_fd == -1) {
 		fprintf(stderr, "Error opening leader %llx\n", pe.config);
 		exit(EXIT_FAILURE);
