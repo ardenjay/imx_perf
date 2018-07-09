@@ -9,9 +9,9 @@ adb push the generated binary to device.
 #### USAGE
 imx_perf [type] [config]
 
-For example, to profile ddr cycles,
+For example, to profile ddr cycles (ddr cycles is 0 in the config)
 
-	imx_perf ddr_perf cycles
+	imx_perf ddr0 0
 
 Then you can do something on the device. After that, press ctrl+c. It outputs as below,
 
@@ -20,6 +20,6 @@ Then you can do something on the device. After that, press ctrl+c. It outputs as
 
 If you want profile in the shell, it needs to be put in the backgroud,
 
-	imx_perf ddr_perf cycles &
+	imx_perf ddr0 0 &
 
 And then you run some shell command. After that, enter fg to bring it back and then ctrl+c.
