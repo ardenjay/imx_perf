@@ -1,6 +1,6 @@
 # imx_perf
 
-There is a PMU for ddr performance in i.MX8. This tool is used to profile ddr with it.
+Simple program to access PMU through perf system call.
 
 #### INSTALLATION
 clone it to $ANDROID\_SRC/external/imx\_perf and mm to build it.  
