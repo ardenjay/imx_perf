@@ -13,12 +13,12 @@ For example, to profile ddr cycles (ddr cycles is 0 in the config)
 
 	imx_perf ddr0 0
 
-Then you can do something on the device. After that, press ctrl+c. It outputs as below,
+Then start doing something on the device. After that, press ctrl+c. It outputs as below,
 
 	received SIGINT
 	Used 10219501 cycles
 
-If you want profile in the shell, it needs to be put in the backgroud,
+It can be put in the background as below, this is useful when profile in the shell:
 
 	imx_perf ddr0 0 &
 
